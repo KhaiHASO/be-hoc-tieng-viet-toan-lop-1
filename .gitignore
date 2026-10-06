@@ -31,3 +31,13 @@ web/next-env.d.ts
 
 # Temporary scratch
 temp_*
+
+# Personal registration & signature files
+BAN_KHAI_*
+*.bak
+ChuKy.*
+signature_*
+*.png
+!web/public/**
+!web/src/**
+
