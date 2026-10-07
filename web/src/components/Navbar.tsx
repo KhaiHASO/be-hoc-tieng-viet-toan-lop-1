@@ -84,29 +84,29 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Hàng 2: Chọn Chế độ Học */}
-        <div className="flex items-center justify-between gap-2 pt-2.5 overflow-x-auto">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2 pt-2.5 overflow-x-auto scroll-smooth pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:none">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {modes.map((mode) => {
               const isActive = currentMode === mode.id;
               return (
                 <button
                   key={mode.id}
                   onClick={() => onChangeMode(mode.id)}
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all shadow-sm ${
+                  className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all shadow-xs shrink-0 active:scale-95 min-h-[40px] ${
                     isActive
-                      ? `${mode.color} text-white shadow-md scale-102`
+                      ? `${mode.color} text-white shadow-md scale-102 ring-2 ring-offset-1 ring-slate-200`
                       : "bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800"
                   }`}
                 >
-                  {mode.icon}
-                  {mode.label}
+                  <span className="shrink-0">{mode.icon}</span>
+                  <span>{mode.label}</span>
                 </button>
               );
             })}
           </div>
 
           {/* Badge thông tin thẻ hiện tại */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold shrink-0">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold shrink-0 ml-auto">
             <span className="capitalize">{currentNumber.word}</span>
             <span className="text-amber-400">•</span>
             <span>{currentNumber.count} {currentNumber.item_name}</span>

@@ -287,9 +287,9 @@ export const WritingCanvas: React.FC<WritingCanvasProps> = ({ card }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* CỘT TRÁI (5 cột): Mẫu nét đứt và các bước quy chuẩn */}
-        <div className="lg:col-span-5 flex flex-col gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        {/* CỘT THAM KHẢO (Mobile: Nằm dưới để nhường chỗ cho bảng vẽ; Desktop: Nằm bên trái) */}
+        <div className="lg:col-span-5 flex flex-col gap-5 order-2 lg:order-1">
           {/* Ảnh Mẫu Nét Đứt Gốc */}
           <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col items-center">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
@@ -333,8 +333,8 @@ export const WritingCanvas: React.FC<WritingCanvasProps> = ({ card }) => {
           </div>
         </div>
 
-        {/* CỘT PHẢI (7 cột): Bảng vẽ Canvas tương tác (Interactive Canvas) */}
-        <div className="lg:col-span-7 flex flex-col gap-4">
+        {/* BẢNG VẼ CANVAS (Mobile: Ưu tiên hiển thị ngay trên đầu; Desktop: Nằm bên phải) */}
+        <div className="lg:col-span-7 flex flex-col gap-4 order-1 lg:order-2">
           <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col">
             {/* Thanh công cụ bảng vẽ */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
