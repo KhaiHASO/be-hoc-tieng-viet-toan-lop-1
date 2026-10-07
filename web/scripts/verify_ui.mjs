@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
 
-const targetUrl = process.env.TARGET_URL || "http://160.250.4.230";
+const targetUrl = process.env.TARGET_URL || "http://localhost:3000";
 const outputDir = path.resolve(process.cwd(), ".ui_audit");
 
 if (!fs.existsSync(outputDir)) {
@@ -50,15 +50,57 @@ async function runAudit() {
       console.warn(`   ⚠ Không chuyển được sang Bé Tập Viết:`, e.message);
     }
 
-    // 3. Chuyển sang mục "Tách - Gộp Số"
+    // 3. Chuyển sang mục "Tách - Gộp Số" và kiểm tra tất cả 5 hoạt động
     try {
       const bondBtn = page.getByRole("button", { name: /Tách - Gộp/i });
       if (await bondBtn.isVisible()) {
         await bondBtn.click();
         await page.waitForTimeout(800);
-        const bondShot = path.join(outputDir, `${vp.name}_3_tach_gop.png`);
+
+        // Sub-tab 1: Sơ đồ nhánh
+        const bondShot = path.join(outputDir, `${vp.name}_3_1_so_do_nhanh.png`);
         await page.screenshot({ path: bondShot, fullPage: false });
-        console.log(`   ✓ Đã chụp Tách - Gộp Số -> ${bondShot}`);
+        console.log(`   ✓ Đã chụp Sơ Đồ Nhánh -> ${bondShot}`);
+
+        // Sub-tab 2: Chia 2 Giỏ
+        const basketsBtn = page.getByRole("button", { name: /Chia 2 Giỏ/i });
+        if (await basketsBtn.isVisible()) {
+          await basketsBtn.click();
+          await page.waitForTimeout(600);
+          const basketsShot = path.join(outputDir, `${vp.name}_3_2_chia_2_gio.png`);
+          await page.screenshot({ path: basketsShot, fullPage: false });
+          console.log(`   ✓ Đã chụp Chia 2 Giỏ -> ${basketsShot}`);
+        }
+
+        // Sub-tab 3: Hộp Bí Mật
+        const boxBtn = page.getByRole("button", { name: /Hộp Bí Mật/i });
+        if (await boxBtn.isVisible()) {
+          await boxBtn.click();
+          await page.waitForTimeout(600);
+          const boxShot = path.join(outputDir, `${vp.name}_3_3_hop_bi_mat.png`);
+          await page.screenshot({ path: boxShot, fullPage: false });
+          console.log(`   ✓ Đã chụp Hộp Bí Mật -> ${boxShot}`);
+        }
+
+        // Sub-tab 4: Cân Thăng Bằng
+        const scaleBtn = page.getByRole("button", { name: /Cân Thăng Bằng/i });
+        if (await scaleBtn.isVisible()) {
+          await scaleBtn.click();
+          await page.waitForTimeout(600);
+          const scaleShot = path.join(outputDir, `${vp.name}_3_4_can_thang_bang.png`);
+          await page.screenshot({ path: scaleShot, fullPage: false });
+          console.log(`   ✓ Đã chụp Cân Thăng Bằng -> ${scaleShot}`);
+        }
+
+        // Sub-tab 5: Cặp Bạn Thân
+        const rainbowBtn = page.getByRole("button", { name: /Cặp Bạn Thân/i });
+        if (await rainbowBtn.isVisible()) {
+          await rainbowBtn.click();
+          await page.waitForTimeout(600);
+          const rainbowShot = path.join(outputDir, `${vp.name}_3_5_cap_ban_than.png`);
+          await page.screenshot({ path: rainbowShot, fullPage: false });
+          console.log(`   ✓ Đã chụp Cặp Bạn Thân -> ${rainbowShot}`);
+        }
       }
     } catch (e) {
       console.warn(`   ⚠ Không chuyển được sang Tách - Gộp:`, e.message);
