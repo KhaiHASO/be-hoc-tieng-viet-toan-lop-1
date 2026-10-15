@@ -49,7 +49,11 @@ Dự án ra đời nhằm giải quyết 4 bài toán cốt lõi của phụ huy
 │       ├── writing_guides/      # Mẫu hướng dẫn viết nét số
 │       ├── animals/             # Ảnh con vật riêng lẻ
 │       └── numbers_data.json    # File dữ liệu chuẩn hóa 10 số
-└── web/                         # Ứng dụng Next.js Frontend
+├── docs/                        # Tài liệu kỹ thuật, đặc tả & vận hành
+│   ├── Dac_Ta_Kien_Truc_Va_Hoc_Lieu.md
+│   ├── Ky_Thuat_Quan_Ly_VPS_Va_Deploy_Truc_Tiep_Qua_SSH_Paramiko.md
+│   └── Huong_Dan_Cai_Dat_Va_Van_Hanh.md
+├── web/                         # Ứng dụng Next.js Frontend
     ├── public/
     │   ├── audio/module_numbers/ # 10 file MP3 giọng cô giáo thu âm gốc
     │   └── data/module_numbers/  # Tài nguyên tĩnh phục vụ Web
@@ -59,6 +63,15 @@ Dự án ra đời nhằm giải quyết 4 bài toán cốt lõi của phụ huy
         ├── types/               # TypeScript Definitions
         └── utils/               # Tiện ích Audio và Sound Service
 ```
+
+---
+
+## 📚 Tài Liệu Kỹ Thuật (Documentation)
+
+* 📖 **[Đặc Tả Kiến Trúc & Học Liệu](docs/Dac_Ta_Kien_Truc_Va_Hoc_Lieu.md):** Phân bổ 4 module học liệu, cấu trúc dữ liệu JSON, Dual-Canvas Engine và chuẩn Singapore Math CPA.
+* 🚀 **[Quản Lý VPS & Deploy Tức Thì Qua Python SSH](docs/Ky_Thuat_Quan_Ly_VPS_Va_Deploy_Truc_Tiep_Qua_SSH_Paramiko.md):** Phương pháp triển khai Zero-Downtime, tối ưu Swap RAM Linux, Nginx và PM2 không phụ thuộc hàng đợi CI/CD.
+* 🛠️ **[Hướng Dẫn Cài Đặt & Vận Hành](docs/Huong_Dan_Cai_Dat_Va_Van_Hanh.md):** Các bước khởi chạy cục bộ, kiểm thử thị giác Playwright và lệnh deploy.
+* 🛡️ **[Quy Chuẩn UI/UX Chống "Lỏ"](AGENTS.md):** Bộ quy tắc giao diện, kích thước chạm mobile, chống tràn viền.
 
 ---
 
